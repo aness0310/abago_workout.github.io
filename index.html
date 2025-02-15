@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abago Workout</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        background-image: url(%D8%B5%D9%88%D8%B1%D8%A9%20%D9%88%D8%A7%D8%AA%D8%B3%D8%A7%D8%A8%20%D8%A8%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%202025-02-15%20%D9%81%D9%8A%2001.48.21_8aef1d3d.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        direction: rtl;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(to right, #56ab2f, #a8e063);
+        color: #fff;
+        padding: 120px 20px;
+        text-align: center;
+        background-image: url("صورة.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      header h1 {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      nav {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      nav a {
+        float: right;
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: #4caf50;
+      }
+
+      nav-footer {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .container {
+        position: relative;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .tabs {
+        overflow: hidden;
+        background: #4caf50;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
+
+      .tabs button {
+        background: inherit;
+        float: right;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: background 0.3s;
+        font-size: 17px;
+        color: #fff;
+      }
+
+      .tabs button:hover {
+        background-color: #66bb6a;
+      }
+
+      .tabs button.active {
+        background-color: #388e3c;
+      }
+
+      .tabcontent {
+        display: none;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
+
+      .tabcontent.active {
+        display: block;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+      }
+      input.error {
+        border: 2px;
+      }
+      input.success {
+        border: 2px;
+      }
+
+      textarea {
+        height: 100px;
+      }
+      /* قسم "عن المدربة" */
+
+      .about-section {
+        background: #e8f5e9;
+        padding: 40px;
+        text-align: center;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .trainer-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-text {
+        max-width: 600px;
+        text-align: right;
+        line-height: 1.6;
+      }
+
+      .about-text p {
+        margin-bottom: 15px;
+      }
+      .about-text ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        line-height: 1.8;
+      }
+      .about-text ul li {
+        margin-bottom: 5px;
+      }
+      /* قسم "اتصل بنا" */
+
+      .contact-section {
+        background: #f1f8e9;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        color: #fff;
+        font-size: 30px;
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 50%;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .social-icons a.whatsapp {
+        background: #25d366;
+      }
+
+      .social-icons a.facebook {
+        background: #3b5998;
+      }
+
+      .social-icons a.instagram {
+        background: #e1306c;
+      }
+
+      .social-icons a.phone {
+        background: #001107;
+      }
+
+      .social-icons a:hover {
+        opacity: 0.8;
+      }
+      /* زر التسجيل */
+
+      .register-btn {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .register-btn:hover {
+        background-color: #388e3c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Abago Workout</h1>
+    </header>
+    <nav>
+      <a href="#tabs-section">الرئيسية</a>
+      <a href="#about">عن المدربة</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+    <div class="container">
+      <!-- تبويبات البيانات -->
+      <div id="tabs-section" class="tabs">
+        <button class="tablinks active" onclick="openTab(event, 'personal')">
+          المعلومات الشخصية
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'health')">
+          المعلومات الصحية
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'notes')">
+          ملاحظات
+        </button>
+      </div>
+      <!-- تبويب المعلومات الشخصية -->
+      <div id="personal" class="tabcontent active">
+        <h2>المعلومات الشخصية</h2>
+        <form action="process_form.php" method="post">
+          <label for="name">الاسم</label>
+          <input type="text" id="name" placeholder="الاسم" required />         
+          <label for="lastname">اللقب</label>
+          <input type="text" id="lastname" placeholder="اللقب" required />   
+          <label for="age">العمر</label>
+          <input type="text" id="age" placeholder="العمر" required/>        
+          <label for="gender">الجنس</label>
+          <input type="text" id="gender" placeholder="الجنس" required/>
+          <button class="tablinks" onclick="openTab(event, 'health')">
+          التالي
+        </button>
+      </div>
+      <!-- تبويب المعلومات الصحية -->
+      <div id="health" class="tabcontent">
+        <h2>المعلومات الصحية</h2>
+        <form action="process_form.php" method="post">
+        <label for="weight">الوزن (كغ)</label>
+        <input type="number" id="weight" placeholder="الوزن (كغ)"  required />         
+        <label for="height">الطول (سم)</label>
+        <input type="number" id="height" placeholder="الطول (سم)" required />
+        <label for="healthStatus">الحالة الصحية</label>
+        <input type="text" id="healthStatus" placeholder="الحالة الصحية" required />
+        <button class="tablinks" onclick="openTab(event, 'health')">
+          التالي
+        </button>
+      </div>
+      <!-- تبويب الملاحظات -->
+      <div id="notes" class="tabcontent">
+        <h2>ملاحظات</h2>
+        <textarea id="notesField" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+        <button class="register-btn" onclick="register()">تسجيل</button>
+      </div>
+      <div style="text-align: center; margin-top: 20px">></div>
+      <!-- قسم عن المدربة -->
+      <section id="about" class="about-section">
+        <div class="about-content">
+          <h2>عن المدربة</h2>
+          <img class="trainer-photo" src="صورة .jpg" />
+          <div class="about-text">
+            <p>
+              مرحبًا ! أنا إيمان الزروق، مدربة شخصية متخصصة في إنقاص وزيادة
+              الوزن. أؤمن بأن لكل شخص احتياجاته الفريدة، لذا أصمم برامج تدريبية
+              مخصصة تهتم بأدق مالتفاصيل للوصول إلى أهدافك الصحية أعمل على وضع
+              خطط غذائية متوازنة تتناسب مع نمط حياتك، وأتابع التطور بشكل دوري
+              لضمان تحقيق أفضل النتائج. وأحرص دائمًا على تقديم الدعم الكامل
+              والإرشاد المستمر لتحقيق التوازن المثالي بين اللياقة البدنية والصحة
+              العامة
+            </p>
+            <ul>
+              <li>تخصيص برامج للتنحيف وزيادة الوزن</li>
+              <li>اهتمام دقيق بالوجبات والتغذية الصحية</li>
+              <li>متابعة تقدم المتدربة بشكل منتظم</li>
+              <li>تقديم نصائح لتحسين الصحة العامة واللياقة البدنية</li>
+              <li>
+                انضمّي إليّ الآن لتحقيق أهدافك الصحية بخطوات مدروسة وفعالة
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- قسم اتصل بنا -->
+      <section id="contact" class="contact-section">
+        <h2>اتصل بنا</h2>
+        <div class="social-icons">
+          <a href="https://wa.me/+218945642131" class="whatsapp" target="_blank"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/share/15mswXNAYN/?mibextid=wwXIfr"
+            class="facebook"
+            target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/abagoworkout?igsh=d3V2Y3pmdmV3N2c4 "
+            class="instagram"
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="phone:+218945642131" class="phone" target="_blank"
+            ><i class="fas fa-phone"></i
+          ></a>
+        </div>
+      </section>
+    </div>
+    <script>
+      function validiteform() {
+        var weight = document.getElementById("weight");
+        var height = document.getElementById("height");
+        var healthStatus = document.getElementById("healthStatus");
+
+        if (weight.value == "") {
+          weight.classList.add("error");
+          weight.nextElementSibling.style.display = "block";
+        } else {
+          weight.classList.remove("error");
+          weight.classList.add("success");
+          weight.nextElementSibling.style.display = "none";
+        }
+
+        if (height.value == "") {
+          height.classList.add("error");
+          height.nextElementSibling.style.display = "block";
+        } else {
+          height.classList.remove("error");
+          height.classList.add("success");
+          height.nextElementSibling.style.display = "none";
+        }
+
+        if (healthStatus.value == "") {
+          healthStatus.classList.add("error");
+          healthStatus.nextElementSibling.style.display = "block";
+        } else {
+          healthStatus.classList.remove("error");
+          healthStatus.classList.add("success");
+          healthStatus.nextElementSibling.style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      function validiteform() {
+        var weight = document.getElementById("weight");
+        var height = document.getElementById("height");
+        var healthStatus = document.getElementById("healthStatus");
+
+        if (weight.value == "") {
+          weight.classList.add("error");
+          weight.nextElementSibling.style.display = "block";
+        } else {
+          weight.classList.remove("error");
+          weight.classList.add("success");
+          weight.nextElementSibling.style.display = "none";
+        }
+
+        if (height.value == "") {
+          height.classList.add("error");
+          height.nextElementSibling.style.display = "block";
+        } else {
+          height.classList.remove("error");
+          height.classList.add("success");
+          height.nextElementSibling.style.display = "none";
+        }
+
+        if (healthStatus.value == "") {
+          healthStatus.classList.add("error");
+          healthStatus.nextElementSibling.style.display = "block";
+        } else {
+          healthStatus.classList.remove("error");
+          healthStatus.classList.add("success");
+          healthStatus.nextElementSibling.style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      function validiteform() {
+        var weight = document.getElementById("weight");
+        var height = document.getElementById("height");
+        var healthStatus = document.getElementById("healthStatus");
+
+        if (weight.value == "") {
+          weight.classList.add("error");
+          weight.nextElementSibling.style.display = "block";
+        } else {
+          weight.classList.remove("error");
+          weight.classList.add("success");
+          weight.nextElementSibling.style.display = "none";
+        }
+
+        if (height.value == "") {
+          height.classList.add("error");
+          height.nextElementSibling.style.display = "block";
+        } else {
+          height.classList.remove("error");
+          height.classList.add("success");
+          height.nextElementSibling.style.display = "none";
+        }
+
+        if (healthStatus.value == "") {
+          healthStatus.classList.add("error");
+          healthStatus.nextElementSibling.style.display = "block";
+        } else {
+          healthStatus.classList.remove("error");
+          healthStatus.classList.add("success");
+          healthStatus.nextElementSibling.style.display = "none";
+        }
+      }
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.className += " active";
+      }
+      // عرض التبويب الأول عند التحميل
+      document.getElementById("personal").style.display = "block";
+
+      function register() {
+        // جمع البيانات من الحقول
+        var name = document.getElementById("name").value;
+        var lastname = document.getElementById("lastname").value;
+        var age = document.getElementById("age").value;
+        var gender = document.getElementById("gender").value;
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+        var healthStatus = document.getElementById("healthStatus").value;
+        var notes = document.getElementById("notesField").value;
+
+        // يمكنك هنا إرسال البيانات إلى الخادم أو معالجتها حسب الحاجة
+        alert(
+          "تم جمع البيانات:\n\nالمعلومات الشخصية:\nالاسم: " +
+            name +
+            "\nاللقب: " +
+            lastname +
+            "\nالعمر: " +
+            age +
+            "\nالجنس: " +
+            gender +
+            "\n\nالمعلومات الصحية:\nالوزن: " +
+            weight +
+            " كغ\nالطول: " +
+            height +
+            " سم\nالحالة الصحية: " +
+            healthStatus +
+            "\n\nملاحظات:\n" +
+            notes
+        );
+      }
+    </script>
+  </body>
+</html>
